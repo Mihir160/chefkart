@@ -1,17 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import './table.css'
-
 const Table = () => {
     const [datas, setDatas] = useState([])
-    // const [isActive, setIsActive] = useState(false);
-    // const handleClick = (isActive) => {
-    //     console.log(isActive)
-
-    //     setIsActive(current => !current);
-    //     // setIsActive(true);
-
-    // };
     const state = {
         color: []    
       }
@@ -20,7 +11,7 @@ const Table = () => {
          this.setState({color: 'blue'})
         }
       }
-
+//   data fatch
     useEffect(() => {
         fetch('MOCK_DATA (1).json')
             .then(res => res.json())
@@ -31,7 +22,7 @@ const Table = () => {
         setDatas(datas)
 
     }
-
+//    sort ascending order
     const sortAscData = (datas) => {
         const strAscending = [...datas].sort((a, b) =>
             a.first_name > b.first_name ? 1 : -1,
@@ -39,13 +30,12 @@ const Table = () => {
         setDatas(strAscending)
 
     }
-
-    const sortDesData = (datas) => {
+    // sort desending order
+      const sortDesData = (datas) => {
         const strDescending = [...datas].sort((a, b) =>
             a.first_name > b.first_name ? -1 : 1,
         );
-        setDatas(strDescending)
-
+      setDatas(strDescending)
     }
     return (
         <div className='mx-auto'>
